@@ -49,15 +49,14 @@ public class Tracker {
     }
 
     public boolean replace(int id, Item item) {
-        boolean result = false;
-        item.setId(id);
+        int index = indexOf(id);
+        boolean rsl = index != -1;
         for (int i = 0; i < size; i++) {
-            if (items[i].getId() == id) {
+            if (rsl) {
+                item.setId(id);
                 items[i] = item;
-                result = true;
-                break;
             }
         }
-        return result;
+        return rsl;
     }
 }

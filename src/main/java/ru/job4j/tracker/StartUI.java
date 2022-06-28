@@ -1,7 +1,7 @@
 package ru.job4j.tracker;
 
 public class StartUI {
-    static String msg = "please : ";
+    static String msg = "Enter name : ";
 
     public static void createItem(Input input, Tracker tracker) {
         System.out.println("=== Create a new Item ===");
@@ -14,31 +14,25 @@ public class StartUI {
 
     public static void editItem(Input input) {
         System.out.println("=== Edit item ===");
-        System.out.print("Enter id ");
-        System.out.print("Enter name ");
     }
 
     public static void deleteItem(Input input) {
         System.out.println("=== Delete item ===");
-        System.out.print("Enter id ");
     }
 
     public static void findItemId() {
         System.out.println("=== Find item by id ===");
-        System.out.print("Enter id ");
     }
 
     public static void findItemName() {
         System.out.println("=== Find items by name ===");
-        System.out.print("Enter name ");
     }
 
     public static void init(Input input, Tracker tracker) {
         boolean run = true;
         while (run) {
             showMenu();
-            System.out.print("Select ");
-            int select = Integer.parseInt(input.askStr(msg));
+            int select = input.askInt("Select : ");
             if (select == 0) {
                 StartUI.createItem(input, tracker);
             } else if (select == 1) {
@@ -53,7 +47,7 @@ public class StartUI {
                 }
             } else if (select == 2) {
                 StartUI.editItem(input);
-                int id = Integer.parseInt(input.askStr(msg));
+                int id = input.askInt("Enter id :");
                 String name = input.askStr(msg);
                 Item item = new Item(name);
                 if (tracker.replace(id, item)) {
@@ -63,7 +57,7 @@ public class StartUI {
                 }
             } else if (select == 3) {
                 StartUI.deleteItem(input);
-                int id = Integer.parseInt(input.askStr(msg));
+                int id = input.askInt("Enter id : ");
                 if (tracker.delete(id)) {
                     System.out.println("Заявка удалена успешно.");
                 } else  {
@@ -71,7 +65,7 @@ public class StartUI {
                 }
             } else if (select == 4) {
                 StartUI.findItemId();
-                int id = Integer.parseInt(input.askStr(msg));
+                int id = input.askInt("Enter id : ");
                 Item item = tracker.findById(id);
                 if (item != null) {
                     System.out.println(item);

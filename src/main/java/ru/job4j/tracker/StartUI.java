@@ -1,12 +1,10 @@
 package ru.job4j.tracker;
 
 public class StartUI {
-    static String msg = "Enter name : ";
 
     public static void createItem(Input input, Tracker tracker) {
         System.out.println("=== Create a new Item ===");
-        System.out.print("Enter name ");
-        String name = input.askStr(msg);
+        String name = input.askStr("enter name: ");
         Item item = new Item(name);
         tracker.add(item);
         System.out.println("Добавленная заявка: " + item);
@@ -48,7 +46,7 @@ public class StartUI {
             } else if (select == 2) {
                 StartUI.editItem(input);
                 int id = input.askInt("Enter id :");
-                String name = input.askStr(msg);
+                String name = input.askStr("Enter name : ");
                 Item item = new Item(name);
                 if (tracker.replace(id, item)) {
                 System.out.println("Заявка изменена успешно");
@@ -74,7 +72,7 @@ public class StartUI {
                 }
             } else if (select == 5) {
                 StartUI.findItemName();
-                String name = input.askStr(msg);
+                String name = input.askStr("Enter name : ");
                 Item[] items = tracker.findByName(name);
                 if (items.length > 0) {
                 for (Item item : items) {
@@ -105,6 +103,5 @@ public class StartUI {
         Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
         new StartUI().init(input, tracker);
-        StartUI.createItem(input, tracker);
     }
 }

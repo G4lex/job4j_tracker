@@ -8,7 +8,7 @@ public class StartUITest {
 
     @Test
     public void whenAddItem() {
-        String[] answers = {"Fix PC"};
+        String[] answers = {"Fix P C"};
         Input input = new StubInput(answers);
         Tracker tracker = new Tracker();
         StartUI.createItem(input, tracker);

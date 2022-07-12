@@ -25,7 +25,7 @@ public class StartUI {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] ar gs) {
         Output output = new ConsoleOutput();
         Input input = new ConsoleInput();
         Tracker tracker = new Tracker();

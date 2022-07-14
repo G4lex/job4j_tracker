@@ -104,7 +104,7 @@ public class StartUITest {
         String ln = System.lineSeparator();
         assertThat(out.toString(), is(
                 "Menu." + ln
-                        + "0. Find b y id" + ln
+                        + "0. Find by id" + ln
                         + "1. Exit" + ln
                         + "=== Find item by id ===" + ln
                         + one + ln
